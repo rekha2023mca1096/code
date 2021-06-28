@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+    int i,j;
+        int len=arr.size();
+       for(i=0;i<=len;i++)
+       {
+           for(j=i+1;j<len;j++)
+           {
+               if(arr[i]==2*arr[j] || 2*arr[i]==arr[j])
+                   return true;
+           }
+       }
+        
+         return false;
+        }
+};
