@@ -1,0 +1,13 @@
+class Solution {
+public:
+    TreeNode* pruneTree(TreeNode* root) {
+        
+        if(root->left!=NULL)
+            root->left=pruneTree(root->left);
+            if(root->right)
+                root->right=pruneTree(root->right);
+        if(root->right==NULL && root->left==NULL && root->val==0)
+            return nullptr;
+return root;        
+    }
+};
