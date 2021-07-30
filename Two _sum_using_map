@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int>mp;
+        vector<int>result;  //vector of result name is created
+        for(int i=0;i<nums.size();i++) //Traversing the vector to insert the value and index
+        {
+            if(mp.find(nums[i]) == mp.end()) //To check value is not already present in the map
+            mp[nums[i]]=i; //2->0,7->1,11->2,15->3
+            if(mp.find(target-nums[i])!=mp.end() && i!=mp[target-nums[i]]) //To check value is present in map and no element is used twice
+            {
+                result.push_back(i); // push the ith index
+                result.push_back(mp[target-nums[i]]); //push the target-nums index
+                break;
+            }
+        }
+        return result; //print both the index
+    }
+};
