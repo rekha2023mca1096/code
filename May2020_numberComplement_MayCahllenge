@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int findComplement(int num) {
+        int k=0,x=0,rem;
+        if(num==0)
+            return 1;
+        while(num!=0)
+        {
+           rem=num%2; //To extract the binary form of a number
+        if(rem==1)
+        {
+            rem=0;
+        }
+            else 
+            {
+                rem=1;
+        }
+        x=x+(rem*pow(2,k)); //to get the number in integer form
+            k++;
+            num=num/2;
+        }
+        return x;
+    }
+};
