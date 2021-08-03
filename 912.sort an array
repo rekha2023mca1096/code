@@ -1,0 +1,41 @@
+class Solution {
+public:
+   
+    
+    void merge(vector<int>l,vector<int>r,vector<int>& res)
+    {
+        int j=0,i=0;
+        while(i<l.size() && j<r.size())
+        {
+            if(l[i]<=r[j])
+                res.push_back(l[i++]);
+                else
+                    res.push_back(r[j++]);
+            }
+            while(i<l.size())
+                res.push_back(l[i++]);
+                while(j<r.size())
+                    res.push_back(r[j++]);
+            
+        }
+    vector<int>mergesort(vector<int>nums)
+    {
+        int n=nums.size();
+        if(n==1)
+            return nums;
+        int m=n/2;
+        vector<int>left(nums.begin(),nums.begin()+m);
+        vector<int>right(nums.begin()+m,nums.end());
+        vector<int>l=mergesort(left);
+        vector<int>r=mergesort(right);
+        vector<int>res;
+        merge(l,r,res);
+        return res;
+    }
+     vector<int> sortArray(vector<int>& nums) {
+        vector<int>result=mergesort(nums);
+        return result;
+    }
+        
+    
+};
